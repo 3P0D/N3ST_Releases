@@ -1,11 +1,11 @@
 # N3ST - Blender Releases
 
-##### Disclaimer
+#### DISCLAIMER
 this tool is provided "as is" without warranty of any kind, express or implied. the authors and contributors take no responsibility for any issues, damages, or losses resulting from the use of this software. use at your own risk.
 no official support or maintenance is guaranteed. while contributions and feedback are welcome, there is no commitment to fixing bugs, updating features, or answering support requests.
 please review the documentation before use, and test thoroughly before applying it to your own environment.
 
-##### Documentation
+#### DOCUMENTATION
 (see below) this tool is mostly a way for me to automate the actions that i find too repetitive and tedious in my workflow. i hope it can be useful to you too. please take some time to review the features below before any use.
 each feature and button has its own tooltip describing its actions. in doubt, check the tooltips.
 
