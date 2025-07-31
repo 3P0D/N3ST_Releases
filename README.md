@@ -4,7 +4,7 @@
 <br>  
 
 ## PRESENTATION
-N3ST (Nested 3-Softwares Toolbox) is a toolbox is primarily designed to automate the repetitive and tedious actions in my workflow across different software I use. I hope it will be useful to you as well. See the DISCLAIMER below for more information about how to use these tools.  
+N3ST is a toolbox is primarily designed to automate the repetitive and tedious actions in my workflow across different software I use. I hope it will be useful to you as well. See the DISCLAIMER below for more information about how to use these tools.  
 
 Compatible with: BLENDER / GODOT / UNITY.
 
