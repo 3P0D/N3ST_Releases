@@ -51,11 +51,9 @@ allows you to create debug materials on the go, either as placeholders or for fa
 - has a 'quick palette' option that generates a rainbow palette (optimal for idmapping).
 - changing the colour within the palette will change the colour of the debug materials.
 
-<br>
+<br>  
 
 ---  
-
-<br>
 
 # TAB: N3ST OBJECTS
 Find this tab in the following editor(s): **3DVIEW**  
@@ -79,11 +77,10 @@ you can now export your assets in batches, in 3 preset formats: FBX(binary), GLB
 - allows you to preserve the hierarchy of your models: if there is a parent, will export as a bundle. untoggle the option if you don't want this to happen.
 allows you to remove the textures from the export. only available for GLB/GLTF export.
 
-<br>
+<br>  
 
 ---  
 
-<br>
 
 # TAB: N3ST UVs 
 Find this tab in the following editor(s): **3DVIEW**  
@@ -109,13 +106,11 @@ a tool to make it easier for you project the UVs of your objects within a axis (
 - the result of the action will then be moved to the corresponding column within the UV grid.
 - the island will be scaled of 0.5 in X, and 0.99 in Y, taking most of the UV space.
 
-<br>
+<br>  
 
 ---  
 
-<br>
-
-# TAB: N3ST UVs 
+# TAB: N3ST ANIM
 Find this tab in the following editor(s): **DOPESHEET**  
 
 <br>  
@@ -127,15 +122,16 @@ allows you to select the keyframes of a timeline given a specific interval of fr
 #### → BAKE ANIMATION
 bake a new action from the selected frames within the dopesheet timeline. allows your to give it a name directly from the interface.
 
-
-<br>
+<br>  
 
 ---  
-
-<br>
 
 # WITHIN MENUS: VERTEX GROUPS
 #### → REMOVE UNUSED VERTEX GROUPS 
 - remove all the vertex groups of the selected object that are not assigned to any weight.
 #### → BATCH RENAME VERTEX GROUPS 
 - search for prefix, suffix, or specific words and replace them within the vertexgroups of the selected object.
+
+<br>  
+
+---  
