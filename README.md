@@ -12,7 +12,7 @@ Compatible with: BLENDER / GODOT / UNITY.
 
 ## HOW TO USE?
 Each branch of archives within this repository contains its own tools, scripts, licensing, and documentation.  
-Pick the packed archives on "RELEASES" for Blender and Godot. Pick the branch's ID to import in Unity through the Package Manager.
+Pick the packed archives on "RELEASES" for Blender and Godot. Pick the branch's ID to import in Unity through the Package Manager.  
 Please choose the branch according to your targeted software if you want to pack your own archive.  
 
 <br>  
