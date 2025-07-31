@@ -7,13 +7,13 @@ class N3ST_EXPORT_OT_export_glb(bpy.types.Operator):
     bl_description = "Export selection to GLB binary (ready for Godot)."
     def execute(self, context):
         scene = context.scene  
-        folder = bpy.path.abspath(scene.export_folder)  
-        object_prefix = scene.export_object_prefix  
-        export_prefix = scene.export_export_prefix  
-        mesh_name = scene.export_mesh_prefix  
+        folder = bpy.path.abspath(scene.n3st_export_folder)  
+        object_prefix = scene.n3st_export_object_prefix  
+        export_prefix = scene.n3st_export_export_prefix  
+        mesh_name = scene.n3st_export_mesh_prefix  
         ignore_textures = getattr(scene, "n3st_export_ignore_textures", False)
-        reset = scene.export_reset_transform  
-        hierarchy = scene.export_with_hierarchy  
+        reset = scene.n3st_export_reset_transform  
+        hierarchy = scene.n3st_export_with_hierarchy  
         try:
             create_folder_if_needed(folder)  
         except Exception as e:
