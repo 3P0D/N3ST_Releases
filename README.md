@@ -2,7 +2,9 @@
 
 <br>
 
-this tool is primarily designed to automate the repetitive and tedious actions in my workflow. i hope it will be useful to you as well.
+this tool is primarily designed to automate the repetitive and tedious actions in my workflow. i hope it will be useful to you as well. updated whenever i can.
+
+<br>
 
 #### DISCLAIMER
 > this tool is provided "as is" without warranty of any kind, express or implied. the authors and contributors take no responsibility for any issues, damages, or losses resulting from the use of this software. use at your own risk. no official support or maintenance is guaranteed. while contributions and feedback are welcome, there is no commitment to fixing bugs, updating features, or answering support requests. please review the documentation before use, and test thoroughly before applying it to your own environment. 
