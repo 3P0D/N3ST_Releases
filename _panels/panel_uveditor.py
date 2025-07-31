@@ -32,7 +32,7 @@ class N3ST_UVEDIT_PT_Gradient_Flat_Projection_3DView(bpy.types.Panel):
             )
             count = scene.grid_rows * scene.grid_cols
             try:
-                from .uveditor.grid_projection_uv_flat import preview_col
+                from ..uveditor.grid_projection_uv_flat import preview_col
             except ImportError:
                 preview_col = None
             for i in range(count):
