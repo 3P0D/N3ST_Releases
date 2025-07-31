@@ -10,7 +10,7 @@ Compatible with: BLENDER / GODOT / UNITY.
 
 <br>  
 
-## HOW TO USE
+## HOW TO USE?
 Each branch of archives within this repository contains its own tools, scripts, licensing, and documentation.  
 Please choose the branch according to your targeted software.  
 
