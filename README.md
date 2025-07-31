@@ -2,7 +2,7 @@
 
 <br>
 
-this tool is primarily designed to automate the repetitive and tedious actions in my workflow. i hope it will be useful to you as well. updated whenever i can.
+this tool is primarily designed to automate the repetitive and tedious actions in my workflow. i hope it will be useful to you as well. updated whenever i can. i'm a beginner dev' so some conventions might not be followed.
 
 <br>
 
