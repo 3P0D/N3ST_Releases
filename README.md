@@ -1,10 +1,12 @@
 # N3ST | Blender Releases >  1.0.1
 
+<br>
+
 #### DISCLAIMER
 > this tool is provided "as is" without warranty of any kind, express or implied. the authors and contributors take no responsibility for any issues, damages, or losses resulting from the use of this software. use at your own risk. no official support or maintenance is guaranteed. while contributions and feedback are welcome, there is no commitment to fixing bugs, updating features, or answering support requests. please review the documentation before use, and test thoroughly before applying it to your own environment. 
 
 #### DOCUMENTATION
-> this tool is primarily designed to automate the repetitive and tedious actions in my workflow. i hope it will be useful to you as well. please take some time to review the features before using the tool. each feature and button includes a tooltip explaining its function. all features are also described in detail below. if you are unsure how a feature works, please refer to the tooltips.
+> please take some time to review the features before using the tool. each feature and button includes a tooltip explaining its function. all features are also described in detail below. if you are unsure how a feature works, please refer to the tooltips.
 
 <br>
 
@@ -13,6 +15,9 @@
 <br>
 
 # TAB: N3ST CORE
+Find this tab in the following editor(s): **3DVIEW**  
+
+<br>  
 
 ## N3ST - 3DVIEW
 #### → TRANSFORMS:
@@ -51,6 +56,9 @@ allows you to create debug materials on the go, either as placeholders or for fa
 <br>
 
 # TAB: N3ST OBJECTS
+Find this tab in the following editor(s): **3DVIEW**  
+
+<br>  
 
 ## N3ST - RENAMER:
 you can now customise your naming convention. those are default value.  
@@ -75,7 +83,10 @@ allows you to remove the textures from the export. only available for GLB/GLTF e
 
 <br>
 
-# TAB: N3ST UVs
+# TAB: N3ST UVs 
+Find this tab in the following editor(s): **3DVIEW**  
+
+<br>  
 
 ## N3ST - UVs EDIT:
 #### → UV PROJECTION: "FLAT"
@@ -90,6 +101,29 @@ a tool to make it easier for you move the UVs of your objects within texture mad
 
 #### → UV PROJECTION: "GRADIENT"
 a tool to make it easier for you project the UVs of your objects within a axis (X, Y, or Z) as "project from view" and move them within texture made of a grid of gradients.
+- create a 'grid': you can choose independently the number of columns of your grid.
+- each axis has its own row of cells to use. each cell correspond to a column.
+- once you click on a cell, there will be a project from view unwrapping of the selected faces, made on the chosen axis, taking the whole height of the UV grid.
+- the result of the action will then be moved to the corresponding column within the UV grid.
+- the island will be scaled of 0.5 in X, and 0.99 in Y, taking most of the UV space.
+
+<br>
+
+---  
+
+<br>
+
+# TAB: N3ST UVs 
+Find this tab in the following editor(s): **DOPESHEET**  
+
+<br>  
+
+## N3ST - ANIM:
+#### → FRAME MANAGER
+allows you to select the keyframes of a timeline given a specific interval of frames. also adds the first and last frame to the selection.
+
+#### → BAKE ANIMATION
+bake a new action from the selected frames within the dopesheet timeline. allows your to give it a name directly from the interface.
 
 
 <br>
