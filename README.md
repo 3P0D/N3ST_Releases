@@ -12,11 +12,7 @@ this tool is primarily designed to automate the repetitive and tedious actions i
 #### DOCUMENTATION
 > please take some time to review the features before using the tool. each feature and button includes a tooltip explaining its function. all features are also described in detail below. if you are unsure how a feature works, please refer to the tooltips.
 
-<br>
-
 ---  
-
-<br>
 
 # TAB: N3ST CORE
 Find this tab in the following editor(s): **3DVIEW**  
@@ -53,8 +49,6 @@ allows you to create debug materials on the go, either as placeholders or for fa
 - has a 'quick palette' option that generates a rainbow palette (optimal for idmapping).
 - changing the colour within the palette will change the colour of the debug materials.
 
-<br>  
-
 ---  
 
 # TAB: N3ST OBJECTS
@@ -79,10 +73,7 @@ you can now export your assets in batches, in 3 preset formats: FBX(binary), GLB
 - allows you to preserve the hierarchy of your models: if there is a parent, will export as a bundle. untoggle the option if you don't want this to happen.
 allows you to remove the textures from the export. only available for GLB/GLTF export.
 
-<br>  
-
 ---  
-
 
 # TAB: N3ST UVs 
 Find this tab in the following editor(s): **3DVIEW**  
@@ -108,8 +99,6 @@ a tool to make it easier for you project the UVs of your objects within a axis (
 - the result of the action will then be moved to the corresponding column within the UV grid.
 - the island will be scaled of 0.5 in X, and 0.99 in Y, taking most of the UV space.
 
-<br>  
-
 ---  
 
 # TAB: N3ST ANIM
@@ -124,8 +113,6 @@ allows you to select the keyframes of a timeline given a specific interval of fr
 #### → BAKE ANIMATION
 bake a new action from the selected frames within the dopesheet timeline. allows your to give it a name directly from the interface.
 
-<br>  
-
 ---  
 
 # WITHIN MENUS: VERTEX GROUPS
@@ -133,7 +120,5 @@ bake a new action from the selected frames within the dopesheet timeline. allows
 - remove all the vertex groups of the selected object that are not assigned to any weight.
 #### → BATCH RENAME VERTEX GROUPS 
 - search for prefix, suffix, or specific words and replace them within the vertexgroups of the selected object.
-
-<br>  
 
 ---  
