@@ -17,7 +17,12 @@ class N3ST_3DVIEW_OT_fixnormals(bpy.types.Operator):
             bpy.ops.mesh.normals_make_consistent(inside=False)
             bpy.ops.object.mode_set(mode='OBJECT')
         return {'FINISHED'}
+classes = [
+    N3ST_3DVIEW_OT_fixnormals,
+]
 def register():
-    bpy.utils.register_class(N3ST_3DVIEW_OT_fixnormals)
+    for cls in classes:
+        bpy.utils.register_class(cls)
 def unregister():
-    bpy.utils.unregister_class(N3ST_3DVIEW_OT_fixnormals)
+    for cls in reversed(classes):
+        bpy.utils.unregister_class(cls)

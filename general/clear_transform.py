@@ -14,7 +14,12 @@ class N3ST_3DVIEW_OT_cleartransform(bpy.types.Operator):
             bpy.ops.object.rotation_clear(clear_delta=False)
             bpy.ops.object.scale_clear(clear_delta=False)
         return {'FINISHED'}
+classes = [
+    N3ST_3DVIEW_OT_cleartransform,
+]
 def register():
-    bpy.utils.register_class(N3ST_3DVIEW_OT_cleartransform)
+    for cls in classes:
+        bpy.utils.register_class(cls)
 def unregister():
-    bpy.utils.unregister_class(N3ST_3DVIEW_OT_cleartransform)
+    for cls in reversed(classes):
+        bpy.utils.unregister_class(cls)

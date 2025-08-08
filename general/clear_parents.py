@@ -12,7 +12,12 @@ class N3ST_3DVIEW_OT_clearparents(bpy.types.Operator):
             context.view_layer.objects.active = obj
             bpy.ops.object.parent_clear(type='CLEAR_KEEP_TRANSFORM')
         return {'FINISHED'}
+classes = [
+    N3ST_3DVIEW_OT_clearparents,
+]
 def register():
-    bpy.utils.register_class(N3ST_3DVIEW_OT_clearparents)
+    for cls in classes:
+        bpy.utils.register_class(cls)
 def unregister():
-    bpy.utils.unregister_class(N3ST_3DVIEW_OT_clearparents)
+    for cls in reversed(classes):
+        bpy.utils.unregister_class(cls)

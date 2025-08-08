@@ -19,4 +19,4 @@ def register():
     bpy.types.Scene.bake_action_name = bpy.props.StringProperty(name="Action", default="")
 def unregister():
     del bpy.types.Scene.bake_action_name
-    bpy.utils.register_class(N3ST_ANIM_PT_anim_panel_dopesheet)
+    bpy.utils.unregister_class(N3ST_ANIM_PT_anim_panel_dopesheet)

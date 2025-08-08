@@ -15,7 +15,12 @@ class N3ST_3DVIEW_OT_addmodifier_mirror(bpy.types.Operator):
             mod.show_on_cage = True
             mod.show_in_editmode = True
         return {'FINISHED'}
+classes = [
+    N3ST_3DVIEW_OT_addmodifier_mirror,
+]
 def register():
-    bpy.utils.register_class(N3ST_3DVIEW_OT_addmodifier_mirror)
+    for cls in classes:
+        bpy.utils.register_class(cls)
 def unregister():
-    bpy.utils.unregister_class(N3ST_3DVIEW_OT_addmodifier_mirror)
+    for cls in reversed(classes):
+        bpy.utils.unregister_class(cls)

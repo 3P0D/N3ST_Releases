@@ -15,7 +15,12 @@ class N3ST_3DVIEW_OT_applyrotation_rig(bpy.types.Operator):
             bpy.ops.object.transform_apply(location=True, rotation=True, scale=True)
             obj.rotation_euler.x = -1.5708
         return {'FINISHED'}
+classes = [
+    N3ST_3DVIEW_OT_applyrotation_rig,
+]
 def register():
-    bpy.utils.register_class(N3ST_3DVIEW_OT_applyrotation_rig)
+    for cls in classes:
+        bpy.utils.register_class(cls)
 def unregister():
-    bpy.utils.unregister_class(N3ST_3DVIEW_OT_applyrotation_rig)
+    for cls in reversed(classes):
+        bpy.utils.unregister_class(cls)

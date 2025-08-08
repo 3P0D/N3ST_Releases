@@ -62,14 +62,14 @@ from .animation import(
     select_keys_intervals,
 )
 to_register = [
-    # ---- PANELS ----
+    
     panel_3dview,
     panel_renamer,
     panel_exporter,
     panel_textures,
     panel_uveditor,
     panel_animation,
-    # ---- GENERAL ----
+    
     add_modifier_bevel,
     add_modifier_mirror,
     add_modifier_preparesculpt,
@@ -83,26 +83,26 @@ to_register = [
     create_suzanne,
     fix_normals,
     fix_origin_to_selected,
-    # ---- RENAMER ----
+    
     apply_name_bool,
     apply_name_curve,
     apply_name_empty,
     apply_name_geo,
     apply_name_rig,
-    # ---- EXPORTER ----
+    
     to_fbx,
     to_glb,
     to_gltf,
-    # ---- MAT/TEXTURES ----
+    
     add_debug_material,
     add_uvchecker,
-    # ---- DATAS ----
+    
     remove_unused_vertex_groups,
     batch_rename_vertex_groups,
-    # ---- UV EDITOR ----
+    
     grid_projection_uv_flat,
     grid_projection_uv_gradient,
-    # ---- ANIMATION ----
+    
     bake_new_action,
     select_keys_intervals
 ]

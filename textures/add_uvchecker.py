@@ -56,13 +56,15 @@ class N3ST_TEXMAT_OT_addchecker_4096(bpy.types.Operator):
         obj = context.object
         add_checker_material(obj, context, 4096)  
         return {'FINISHED'}
+classes = [
+    N3ST_TEXMAT_OT_addchecker_512,
+    N3ST_TEXMAT_OT_addchecker_1024,
+    N3ST_TEXMAT_OT_addchecker_2048,
+    N3ST_TEXMAT_OT_addchecker_4096,
+]
 def register():
-    bpy.utils.register_class(N3ST_TEXMAT_OT_addchecker_512)
-    bpy.utils.register_class(N3ST_TEXMAT_OT_addchecker_1024)
-    bpy.utils.register_class(N3ST_TEXMAT_OT_addchecker_2048)
-    bpy.utils.register_class(N3ST_TEXMAT_OT_addchecker_4096)
+    for cls in classes:
+        bpy.utils.register_class(cls)
 def unregister():
-    bpy.utils.unregister_class(N3ST_TEXMAT_OT_addchecker_4096)
-    bpy.utils.unregister_class(N3ST_TEXMAT_OT_addchecker_2048)
-    bpy.utils.unregister_class(N3ST_TEXMAT_OT_addchecker_1024)
-    bpy.utils.unregister_class(N3ST_TEXMAT_OT_addchecker_512)
+    for cls in reversed(classes):
+        bpy.utils.unregister_class(cls)

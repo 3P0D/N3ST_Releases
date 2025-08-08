@@ -1,6 +1,6 @@
 import bpy
 import bmesh  
-class GridUVProperties(bpy.types.PropertyGroup):
+class N3ST_UVEDIT_PROP_grid_uv(bpy.types.PropertyGroup):
     grid_size: bpy.props.IntProperty(
         name="Grid Size",  
         default=8,  
@@ -148,11 +148,11 @@ class N3ST_UVEDIT_OT_project_gradient_uv(bpy.types.Operator):
             context.window_manager.event_timer_remove(self._timer)  
             return {'FINISHED' if ok else 'CANCELLED'}  
         return {'PASS_THROUGH'}  
-classes = [GridUVProperties, N3ST_UVEDIT_OT_project_gradient_uv]
+classes = [N3ST_UVEDIT_PROP_grid_uv, N3ST_UVEDIT_OT_project_gradient_uv]
 def register():
     for cls in classes:
         bpy.utils.register_class(cls)
-    bpy.types.Scene.grid_uv_props = bpy.props.PointerProperty(type=GridUVProperties)  
+    bpy.types.Scene.grid_uv_props = bpy.props.PointerProperty(type=N3ST_UVEDIT_PROP_grid_uv)  
 def unregister():
     del bpy.types.Scene.grid_uv_props
     for cls in reversed(classes):

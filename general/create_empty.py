@@ -9,7 +9,12 @@ class N3ST_3DVIEW_OT_createempty(bpy.types.Operator):
         if obj:
             obj.name = "_EMPTY"
         return {'FINISHED'}
+classes = [
+    N3ST_3DVIEW_OT_createempty,
+]
 def register():
-    bpy.utils.register_class(N3ST_3DVIEW_OT_createempty)
+    for cls in classes:
+        bpy.utils.register_class(cls)
 def unregister():
-    bpy.utils.unregister_class(N3ST_3DVIEW_OT_createempty)
+    for cls in reversed(classes):
+        bpy.utils.unregister_class(cls)

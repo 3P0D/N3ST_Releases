@@ -40,7 +40,7 @@ class N3ST_UVEDIT_PT_Gradient_Flat_Projection_3DView(bpy.types.Panel):
                 row_num = i // scene.grid_cols
                 col_num = i % scene.grid_cols
                 lettre_col = chr(65 + col_num)
-                numbers_row = (row_num % 8) + 1
+                chiffre_row = (row_num % 8) + 1
                 if i < len(scene.color_grid):
                     item = scene.color_grid[i]
                     path = item.icon_path
@@ -55,11 +55,11 @@ class N3ST_UVEDIT_PT_Gradient_Flat_Projection_3DView(bpy.types.Panel):
                     if icon_id != 0:
                         op = btn_col.operator("n3st_uvedit.button_below_picker", text="", icon_value=icon_id)
                     else:
-                        display = f"{lettre_col}{numbers_row}"
+                        display = f"{lettre_col}{chiffre_row}"
                         op = btn_col.operator("n3st_uvedit.button_below_picker", text=display, icon_value=0)
                     op.index = i
                 else:
-                    display = f"{lettre_col}{numbers_row}"
+                    display = f"{lettre_col}{chiffre_row}"
                     op = col_layout.operator("n3st_uvedit.button_below_picker", text=display, icon_value=0)
                     op.index = i
         elif context.scene.n3st_uv_mode == 'GRADIENT':

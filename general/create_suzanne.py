@@ -9,7 +9,12 @@ class N3ST_3DVIEW_OT_createsuzanne(bpy.types.Operator):
         if obj:
             obj.name = "_SUZANNE"
         return {'FINISHED'}
+classes = [
+    N3ST_3DVIEW_OT_createsuzanne,
+]
 def register():
-    bpy.utils.register_class(N3ST_3DVIEW_OT_createsuzanne)
+    for cls in classes:
+        bpy.utils.register_class(cls)
 def unregister():
-    bpy.utils.unregister_class(N3ST_3DVIEW_OT_createsuzanne)
+    for cls in reversed(classes):
+        bpy.utils.unregister_class(cls)

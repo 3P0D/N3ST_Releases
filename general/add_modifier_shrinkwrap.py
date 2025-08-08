@@ -21,7 +21,12 @@ class N3ST_3DVIEW_OT_addmodifier_shrinkwrap(bpy.types.Operator):
             disp.show_on_cage = True
             disp.show_in_editmode = True
         return {'FINISHED'}
+classes = [
+    N3ST_3DVIEW_OT_addmodifier_shrinkwrap,
+]
 def register():
-    bpy.utils.register_class(N3ST_3DVIEW_OT_addmodifier_shrinkwrap)
+    for cls in classes:
+        bpy.utils.register_class(cls)
 def unregister():
-    bpy.utils.unregister_class(N3ST_3DVIEW_OT_addmodifier_shrinkwrap)
+    for cls in reversed(classes):
+        bpy.utils.unregister_class(cls)

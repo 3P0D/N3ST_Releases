@@ -24,7 +24,12 @@ class N3ST_3DVIEW_OT_prepsculpt(bpy.types.Operator):
         if remesh:
             remesh.voxel_size = self.remesh_voxel
         return {'FINISHED'}
+classes = [
+    N3ST_3DVIEW_OT_prepsculpt,
+]
 def register():
-    bpy.utils.register_class(N3ST_3DVIEW_OT_prepsculpt)
+    for cls in classes:
+        bpy.utils.register_class(cls)
 def unregister():
-    bpy.utils.unregister_class(N3ST_3DVIEW_OT_prepsculpt)
+    for cls in reversed(classes):
+        bpy.utils.unregister_class(cls)

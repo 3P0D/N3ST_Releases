@@ -67,15 +67,29 @@ class N3ST_EXPORT_OT_export_glb(bpy.types.Operator):
             total += 1  
         export_message(f"N3ST: {total} objects/hierarchies exported in: {folder}", level="INFO")  
         return {'FINISHED'}
+classes = [
+    N3ST_EXPORT_OT_export_glb,
+]
+prop_names = [
+    "n3st_export_ignore_textures",
+    "n3st_export_with_hierarchy",
+    "n3st_export_reset_transform",
+    "n3st_export_mesh_prefix",
+    "n3st_export_export_prefix",
+    "n3st_export_object_prefix",
+    "n3st_export_folder",
+    "n3st_export_mode",
+]
 def register():
     call_for_register()
-    bpy.utils.register_class(N3ST_EXPORT_OT_export_glb)
+    for cls in classes:
+        bpy.utils.register_class(cls)
 def unregister():
-    bpy.utils.unregister_class(N3ST_EXPORT_OT_export_glb)
-    del bpy.types.Scene.n3st_export_ignore_textures
-    del bpy.types.Scene.n3st_export_with_hierarchy
-    del bpy.types.Scene.n3st_export_reset_transform
-    del bpy.types.Scene.n3st_export_mesh_prefix
-    del bpy.types.Scene.n3st_export_export_prefix
-    del bpy.types.Scene.n3st_export_object_prefix
-    del bpy.types.Scene.n3st_export_folder
+    for prop_name in prop_names:
+        if hasattr(bpy.types.Scene, prop_name):
+            delattr(bpy.types.Scene, prop_name)
+    for cls in reversed(classes):
+        try:
+            bpy.utils.unregister_class(cls)
+        except RuntimeError:
+            pass
