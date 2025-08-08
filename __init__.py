@@ -1,7 +1,7 @@
 bl_info = {
     "name": "N3ST (Blender) 1.0.2",
     "author": "3P0D",
-    "version": (1, 0, 1),
+    "version": (1, 0, 2),
     "blender": (4, 4, 0),
     "location": "View3D > Sidebar",
     "description": "Lots of repetitive commands to optimize my workflow. Distributed as is. Updated whenever I can.",
