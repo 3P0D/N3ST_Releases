@@ -4,9 +4,14 @@ class N3ST_RENAMER_OT_applyname_bool(bpy.types.Operator):
     bl_label = "Bool"
     bl_description = "Rename the selection of BOOLS into a given prefix."
     bl_options = {'REGISTER', 'UNDO'}
+    prefix: bpy.props.StringProperty(
+        name="Bool",
+        default="BOOL",
+        description="Prefix to add to selected MESH objects used as bools"
+    )
     def execute(self, context):
         sel = context.selected_objects
-        prefix = getattr(context.scene, 'newName_bool', "")
+        prefix = self.prefix
         any_renamed = False
         for obj in sel:
             if obj.type == 'MESH':
@@ -14,9 +19,10 @@ class N3ST_RENAMER_OT_applyname_bool(bpy.types.Operator):
                     obj.name = prefix + "_" + obj.name
                     any_renamed = True
         return {'FINISHED'} if any_renamed else {'CANCELLED'}
+classes = [N3ST_RENAMER_OT_applyname_bool]
 def register():
-    bpy.types.Scene.newName_bool = bpy.props.StringProperty(name="Bool", default="BOOL")
-    bpy.utils.register_class(N3ST_RENAMER_OT_applyname_bool)
+    for cls in classes:
+        bpy.utils.register_class(cls)
 def unregister():
-    bpy.utils.unregister_class(N3ST_RENAMER_OT_applyname_bool)
-    del bpy.types.Scene.newName_bool
+    for cls in reversed(classes):
+        bpy.utils.unregister_class(cls)

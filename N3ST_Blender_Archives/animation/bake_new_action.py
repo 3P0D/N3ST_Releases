@@ -41,7 +41,12 @@ class N3ST_ANIM_OT_select_interval_frames(bpy.types.Operator):
         else:
             self.report({'WARNING'}, "N3ST: No action could be baked.")
         return {'FINISHED'}
+classes = [
+    N3ST_ANIM_OT_select_interval_frames,
+]
 def register():
-    bpy.utils.register_class(N3ST_ANIM_OT_select_interval_frames)
+    for cls in classes:
+        bpy.utils.register_class(cls)
 def unregister():
-    bpy.utils.unregister_class(N3ST_ANIM_OT_select_interval_frames)
+    for cls in reversed(classes):
+        bpy.utils.unregister_class(cls)

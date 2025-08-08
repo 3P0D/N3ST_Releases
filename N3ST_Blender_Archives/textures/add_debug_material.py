@@ -43,7 +43,7 @@ def update_color_count(self, context):
         item.color = DEFAULT_COLOR   
     while len(col) > target:
         col.remove(len(col) - 1)    
-class N3ST_ColorPickers(bpy.types.PropertyGroup):
+class N3ST_TEXMAT_PROP_color_picker(bpy.types.PropertyGroup):
     color: bpy.props.FloatVectorProperty(
         name="Color",          
         subtype='COLOR',       
@@ -117,17 +117,21 @@ class N3ST_TEXMAT_OT_debug_palette(bpy.types.Operator):
         scene.color_count = target_count
         self.report({'INFO'}, "N3ST: Debug palette generated!")
         return {'FINISHED'}
+classes = [
+    N3ST_TEXMAT_PROP_color_picker,
+    N3ST_TEXMAT_OT_assign_mat,
+    N3ST_TEXMAT_OT_debug_palette,
+]
 def register():
-    bpy.utils.register_class(N3ST_ColorPickers)
-    bpy.utils.register_class(N3ST_TEXMAT_OT_assign_mat)
-    bpy.utils.register_class(N3ST_TEXMAT_OT_debug_palette)
-    bpy.types.Scene.my_colors = bpy.props.CollectionProperty(type=N3ST_ColorPickers)
+    for cls in classes:
+        bpy.utils.register_class(cls)
+    bpy.types.Scene.my_colors = bpy.props.CollectionProperty(type=N3ST_TEXMAT_PROP_color_picker)
     bpy.types.Scene.color_count = bpy.props.IntProperty(
         name="Color Pickers", min=1, max=MAX_COLORS,
-        default=0, update=update_color_count)
+        default=0, update=update_color_count
+    )
 def unregister():
-    bpy.utils.unregister_class(N3ST_TEXMAT_OT_assign_mat)
-    bpy.utils.unregister_class(N3ST_TEXMAT_OT_debug_palette)
-    bpy.utils.unregister_class(N3ST_ColorPickers)
-    del bpy.types.Scene.my_colors
     del bpy.types.Scene.color_count
+    del bpy.types.Scene.my_colors
+    for cls in reversed(classes):
+        bpy.utils.unregister_class(cls)

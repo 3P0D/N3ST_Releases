@@ -37,7 +37,7 @@ class N3ST_PT_main_panel(bpy.types.Panel):
         row.operator("n3st_3dview.addmodifier_bevel", icon='MOD_BEVEL')
         layout.operator("n3st_3dview.addmodifier_shrinkwrap", icon='MOD_SHRINKWRAP')
         row = layout.row()
-        row.prop(context.scene, 'n3st_prepare_sculpt_remesh', text="Remesh Size")
+        row.prop(context.scene, 'remesh_voxel', text="Remesh Size")
         row.operator("n3st_3dview.prepsculpt", icon='SCULPTMODE_HLT')
 def register():
         bpy.utils.register_class(N3ST_PT_main_panel)

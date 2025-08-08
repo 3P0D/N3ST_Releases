@@ -28,11 +28,14 @@ def draw_remove_unused(self, context):
         N3ST_DATAS_OT_remove_unused_vertex_groups.bl_idname,
         icon='X'
     )
+classes = [
+    N3ST_DATAS_OT_remove_unused_vertex_groups,
+]
 def register():
-    bpy.utils.register_class(N3ST_DATAS_OT_remove_unused_vertex_groups)
+    for cls in classes:
+        bpy.utils.register_class(cls)
     bpy.types.DATA_PT_vertex_groups.append(draw_remove_unused)
 def unregister():
     bpy.types.DATA_PT_vertex_groups.remove(draw_remove_unused)
-    bpy.utils.unregister_class(N3ST_DATAS_OT_remove_unused_vertex_groups)
-if __name__ == "__main__":
-    register()
+    for cls in reversed(classes):
+        bpy.utils.unregister_class(cls)

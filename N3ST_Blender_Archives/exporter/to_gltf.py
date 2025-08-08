@@ -7,12 +7,12 @@ class N3ST_EXPORT_OT_export_fbx(bpy.types.Operator):
     bl_description = "Export selection to FBX, following Unity standards."
     def execute(self, context):
         scene = context.scene  
-        folder = bpy.path.abspath(scene.export_folder)  
-        object_prefix = scene.export_object_prefix  
-        export_prefix = scene.export_export_prefix  
-        mesh_name = scene.export_mesh_prefix  
-        reset = scene.export_reset_transform  
-        hierarchy = scene.export_with_hierarchy  
+        folder = bpy.path.abspath(scene.n3st_export_folder)  
+        object_prefix = scene.n3st_export_object_prefix  
+        export_prefix = scene.n3st_export_export_prefix  
+        mesh_name = scene.n3st_export_mesh_prefix  
+        reset = scene.n3st_export_reset_transform  
+        hierarchy = scene.n3st_export_with_hierarchy  
         try:
             create_folder_if_needed(folder)  
         except Exception as e:
@@ -61,16 +61,29 @@ class N3ST_EXPORT_OT_export_fbx(bpy.types.Operator):
             total += 1  
         export_message(f"N3ST: {total} objects/hierarchies exported in: {folder}", level="INFO")  
         return {'FINISHED'}  
+classes = [
+    N3ST_EXPORT_OT_export_fbx,
+]
+property_names = [
+    "n3st_export_ignore_textures",
+    "n3st_export_with_hierarchy",
+    "n3st_export_reset_transform",
+    "n3st_export_mesh_prefix",
+    "n3st_export_export_prefix",
+    "n3st_export_object_prefix",
+    "n3st_export_folder",
+    "n3st_export_mode",
+]
 def register():
-    call_for_register()  
-    bpy.utils.register_class(N3ST_EXPORT_OT_export_fbx)  
+    call_for_register()
+    for cls in classes:
+        bpy.utils.register_class(cls)
 def unregister():
-    bpy.utils.unregister_class(N3ST_EXPORT_OT_export_fbx)  
-    del bpy.types.Scene.n3st_export_ignore_textures  
-    del bpy.types.Scene.n3st_export_with_hierarchy  
-    del bpy.types.Scene.n3st_export_reset_transform  
-    del bpy.types.Scene.n3st_export_mesh_prefix  
-    del bpy.types.Scene.n3st_export_export_prefix  
-    del bpy.types.Scene.n3st_export_object_prefix  
-    del bpy.types.Scene.n3st_export_folder  
-    del bpy.types.Scene.n3st_export_mode 
+    for prop_name in property_names:
+        if hasattr(bpy.types.Scene, prop_name):
+            delattr(bpy.types.Scene, prop_name)
+    for cls in reversed(classes):
+        try:
+            bpy.utils.unregister_class(cls)
+        except RuntimeError:
+            pass

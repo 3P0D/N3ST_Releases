@@ -52,7 +52,7 @@ def center_cell_pixel_color(image, row, col, n_rows, n_cols):
     if idx + 3 >= len(px):  
         return (1, 1, 1, 1)  
     return tuple(px[idx:idx + 4])  
-class PROP_ColorItem(bpy.types.PropertyGroup):
+class N3ST_UVEDIT_PROP_color_item(bpy.types.PropertyGroup):
     color: bpy.props.FloatVectorProperty(
         name="Color Picker",  
         subtype='COLOR',  
@@ -61,7 +61,7 @@ class PROP_ColorItem(bpy.types.PropertyGroup):
         default=(1, 1, 1, 1)  
     )  
     icon_path: bpy.props.StringProperty(name="Icon path") 
-class N3ST_UVEDIT_fill_color_grid(bpy.types.Operator):
+class N3ST_UVEDIT_OP_fill_color_grid(bpy.types.Operator):
     bl_idname = "n3st_uvedit.fill_color_grid"
     bl_label = "Generate icons and fill the grid"
     bl_description = ("Generate the image textures from the loaded image and fill the grid. "
@@ -98,7 +98,7 @@ class N3ST_UVEDIT_fill_color_grid(bpy.types.Operator):
             item.icon_path = path  
             make_preview_icon(path)  
         return {'FINISHED'}  
-class N3ST_UVEDIT_button_below_picker(bpy.types.Operator):
+class N3ST_UVEDIT_OP_button_below_picker(bpy.types.Operator):
     bl_idname = "n3st_uvedit.button_below_picker"
     bl_label = "Select the cell"
     index: bpy.props.IntProperty()  
@@ -137,7 +137,7 @@ class N3ST_UVEDIT_button_below_picker(bpy.types.Operator):
         else:
             self.report({'WARNING'}, "N3ST: No face(s) selected.")
         return {'FINISHED'}
-class N3ST_UVEDIT_open_palette_folder(bpy.types.Operator):
+class N3ST_UVEDIT_OP_open_palette_folder(bpy.types.Operator):
     bl_idname = "n3st_uvedit.open_palette_folder" 
     bl_label = "Open the icons folder"
     bl_description = "Open the folder where the generated images for your icons are saved, within the File Explorer of your system (not in Blender)."
@@ -160,7 +160,7 @@ class N3ST_UVEDIT_open_palette_folder(bpy.types.Operator):
             self.report({'ERROR'}, f"N3ST: Impossible to open the folder: {e}")
             return {'CANCELLED'}  
         return {'FINISHED'}  
-class N3ST_UVEDIT_clear_color_grid(bpy.types.Operator):
+class N3ST_UVEDIT_OP_clear_color_grid(bpy.types.Operator):
     bl_idname = "n3st_uvedit.clear_color_grid"
     bl_label = "Clear Icons"
     bl_description = ("Remove all the preview icons from your grid. WARNING! It does NOT delete "
@@ -172,26 +172,25 @@ class N3ST_UVEDIT_clear_color_grid(bpy.types.Operator):
         self.report({'INFO'}, "N3ST: Grid icons cleared, showing numbers instead.")
         return {'FINISHED'}
 classes = [
-    PROP_ColorItem,
-    N3ST_UVEDIT_fill_color_grid,
-    N3ST_UVEDIT_button_below_picker,
-    N3ST_UVEDIT_open_palette_folder,
-    N3ST_UVEDIT_clear_color_grid,
+    N3ST_UVEDIT_PROP_color_item,
+    N3ST_UVEDIT_OP_fill_color_grid,
+    N3ST_UVEDIT_OP_button_below_picker,
+    N3ST_UVEDIT_OP_open_palette_folder,
+    N3ST_UVEDIT_OP_clear_color_grid,
 ]
 def register_properties():
     bpy.types.Scene.my_image = bpy.props.PointerProperty(
-        name="Texture",  
-        type=bpy.types.Image,  
+        name="Texture", type=bpy.types.Image,
     )
-    bpy.types.Scene.grid_rows = bpy.props.IntProperty(name="Rows", default=4, min=1, max=26) 
-    bpy.types.Scene.grid_cols = bpy.props.IntProperty(name="Columns", default=4, min=1, max=99)  
-    bpy.types.Scene.color_grid = bpy.props.CollectionProperty(type=PROP_ColorItem)  
+    bpy.types.Scene.grid_rows = bpy.props.IntProperty(name="Rows", default=4, min=1, max=26)
+    bpy.types.Scene.grid_cols = bpy.props.IntProperty(name="Columns", default=4, min=1, max=99)
+    bpy.types.Scene.color_grid = bpy.props.CollectionProperty(type=N3ST_UVEDIT_PROP_color_item)
 def unregister_properties():
     del bpy.types.Scene.my_image
     del bpy.types.Scene.grid_rows
     del bpy.types.Scene.grid_cols
     del bpy.types.Scene.color_grid
-    clear_previews()  
+    clear_previews()
 def register():
     for cls in classes:
         bpy.utils.register_class(cls)

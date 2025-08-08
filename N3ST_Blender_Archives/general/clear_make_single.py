@@ -6,7 +6,12 @@ class N3ST_3DVIEW_OT_makesingle(bpy.types.Operator):
     def execute(self, context):
         bpy.ops.object.make_single_user(object=True, obdata=True, material=False, animation=False, obdata_animation=False)
         return {'FINISHED'}
+classes = [
+    N3ST_3DVIEW_OT_makesingle,
+]
 def register():
-    bpy.utils.register_class(N3ST_3DVIEW_OT_makesingle)
+    for cls in classes:
+        bpy.utils.register_class(cls)
 def unregister():
-    bpy.utils.unregister_class(N3ST_3DVIEW_OT_makesingle)
+    for cls in reversed(classes):
+        bpy.utils.unregister_class(cls)

@@ -66,13 +66,17 @@ class N3ST_DATAS_OT_batch_rename_vertex_groups(bpy.types.Operator):
         return {'FINISHED'}
     def invoke(self, context, event):
         return context.window_manager.invoke_props_dialog(self)
+classes = [
+    N3ST_DATAS_OT_batch_rename_vertex_groups,
+]
 def menu_func(self, context):
     self.layout.operator(N3ST_DATAS_OT_batch_rename_vertex_groups.bl_idname, icon="SORTALPHA")
 def register():
-    bpy.utils.register_class(N3ST_DATAS_OT_batch_rename_vertex_groups)
+    for cls in classes:
+        bpy.utils.register_class(cls)
     bpy.types.DATA_PT_vertex_groups.append(menu_func)
 def unregister():
     bpy.types.DATA_PT_vertex_groups.remove(menu_func)
-    bpy.utils.unregister_class(N3ST_DATAS_OT_batch_rename_vertex_groups)
-if __name__ == "__main__":
-    register()
+    for cls in reversed(classes):
+        bpy.utils.unregister_class(cls)
+    

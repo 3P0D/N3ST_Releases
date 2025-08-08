@@ -14,7 +14,12 @@ class N3ST_3DVIEW_OT_origintoselect(bpy.types.Operator):
         bpy.ops.object.mode_set(mode='OBJECT')
         bpy.ops.object.origin_set(type='ORIGIN_CURSOR', center='MEDIAN')
         return {'FINISHED'}
+classes = [
+    N3ST_3DVIEW_OT_origintoselect,
+]
 def register():
-    bpy.utils.register_class(N3ST_3DVIEW_OT_origintoselect)
+    for cls in classes:
+        bpy.utils.register_class(cls)
 def unregister():
-    bpy.utils.unregister_class(N3ST_3DVIEW_OT_origintoselect)
+    for cls in reversed(classes):
+        bpy.utils.unregister_class(cls)

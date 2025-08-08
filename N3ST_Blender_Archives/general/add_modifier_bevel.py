@@ -13,7 +13,12 @@ class N3ST_3DVIEW_OT_addmodifier_bevel(bpy.types.Operator):
         if mod:
             mod.limit_method = 'WEIGHT'  
         return {'FINISHED'}  
+classes = [
+    N3ST_3DVIEW_OT_addmodifier_bevel,
+]
 def register():
-    bpy.utils.register_class(N3ST_3DVIEW_OT_addmodifier_bevel)  
+    for cls in classes:
+        bpy.utils.register_class(cls)
 def unregister():
-    bpy.utils.unregister_class(N3ST_3DVIEW_OT_addmodifier_bevel)
+    for cls in reversed(classes):
+        bpy.utils.unregister_class(cls)

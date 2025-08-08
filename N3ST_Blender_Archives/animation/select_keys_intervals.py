@@ -27,7 +27,12 @@ class N3ST_ANIM_OT_select_interval_frames(bpy.types.Operator):
         return {'FINISHED'}
     def invoke(self, context, event):
         return context.window_manager.invoke_props_dialog(self)
+classes = [
+    N3ST_ANIM_OT_select_interval_frames,
+]
 def register():
-    bpy.utils.register_class(N3ST_ANIM_OT_select_interval_frames)
+    for cls in classes:
+        bpy.utils.register_class(cls)
 def unregister():
-    bpy.utils.unregister_class(N3ST_ANIM_OT_select_interval_frames)
+    for cls in reversed(classes):
+        bpy.utils.unregister_class(cls)
