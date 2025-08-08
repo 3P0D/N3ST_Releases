@@ -1,5 +1,5 @@
 bl_info = {
-    "name": "N3ST 1.0.1",
+    "name": "N3ST (Blender) 1.0.2",
     "author": "3P0D",
     "version": (1, 0, 1),
     "blender": (4, 4, 0),
